@@ -18,8 +18,6 @@ public class Connection{
 	
 	String ligne;					// ligne lue du serveur 
 
-	
-	
 	public void etablirConnection() throws UnknownHostException, IOException
 	{
 		// Ouvrir le Socket et établir la connexion avec le serveur ServeurForme
