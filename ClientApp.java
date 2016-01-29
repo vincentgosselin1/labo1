@@ -6,14 +6,18 @@ import java.net.UnknownHostException;
 import ca.etsmtl.log.util.IDLogger;
 
 public class ClientApp {
+	
 	public int ID;//Pour IDLogger
-	public String[] forme_a_dessiner = new String[5];// (String)Rectange ; (int)p1 ; (int)p2 ; (int)p3 ; (int)p4.
+	public String[] forme_a_dessiner = new String[5];// (String)Rectangle ; (int)p1 ; (int)p2 ; (int)p3 ; (int)p4.
+	
 	Connection C1;//Seulement 1 connection par Client
 	Affichage A1;//Seulement 1 affichage par Client
+	CreateurForme F1;//Seulement 1 createur de forme :).
 	
 	ClientApp(){
 		C1 = new Connection();//Cree la connection client/serveur.
 		A1 = new Affichage();//Cree la fenetre pour l'affichage.
+		F1 = new CreateurForme();//Cree un CreateurForme.
 	}
 	
 	private void Decode(String reponse_serveur)
@@ -42,8 +46,10 @@ public class ClientApp {
 		ClientApp App = new ClientApp();
 		App.C1.etablirConnection();
 		App.Decode(App.C1.request());
+		Forme Forme = App.F1.nouvelleForme(App.forme_a_dessiner);
 		App.C1.close();
 		//I1.logID(App.ID);
+		Forme.sayHi();
 		App.Print(App.forme_a_dessiner);
 	}
 }
