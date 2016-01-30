@@ -45,11 +45,18 @@ public class ClientApp {
 		//IDLogger I1 = IDLogger.getInstance();
 		ClientApp App = new ClientApp();
 		App.C1.etablirConnection();
+		for(int i=0;i<10;i++)
+		{
 		App.Decode(App.C1.request());
 		Forme Forme = App.F1.nouvelleForme(App.forme_a_dessiner);
+		App.A1.afficherForme(Forme);
+			try {
+			    Thread.sleep(1000);
+			} catch(InterruptedException ex) {
+			    Thread.currentThread().interrupt();
+			}
+		}
 		App.C1.close();
 		//I1.logID(App.ID);
-		Forme.sayHi();
-		App.Print(App.forme_a_dessiner);
 	}
 }
