@@ -35,12 +35,12 @@ public class Connection{
 		out.println("GET");
 		// Récuperer la chaine de caractére et l'afficher à l'écran
 		ligne = in.readLine();
-		// Indiquer au serveur ServeurForme que la session est finie
-		out.println("END");
 		return ligne;
 		
 	}
 	public void close() throws UnknownHostException, IOException{
+		// Indiquer au serveur ServeurForme que la session est finie
+		out.println("END");
 		// Fermer le Socket
 		client.close();
 	}
