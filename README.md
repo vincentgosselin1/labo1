@@ -1,5 +1,1 @@
-# labo1
-Ele116 labo1.
-
-
-THIS IS A FUCKING TEST
+PUSH THE FUCK UP
